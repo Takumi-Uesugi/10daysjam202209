@@ -11,6 +11,7 @@ typedef struct {
 } D_ANIMATION;
 
 //画像をアニメーションとして読み込む(メモリ確保)
+//1コマあたりの幅と高さ、コマ数を指定する
 int LoadAnimation(const char* Filename, int Width, int Height, int Frames);
 //画像の削除(メモリ解放)
 int DeleteAnimation(int Handle);

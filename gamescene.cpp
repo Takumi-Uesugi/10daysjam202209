@@ -1,5 +1,4 @@
 #include "gamescene.h"
-#include "input.h"
 
 GameScene::GameScene()
 {
@@ -22,11 +21,16 @@ void GameScene::Update()
 {
 	input_->Update();
 
-	switch (sceneNum)
+	switch (sceneNum_)
 	{
-	case TITLE:
+	case SCENE_TITLE:
+		if (input_->GetKeyState(KEY_INPUT_RETURN, KEYS_PUSH))
+		{
+			Reset();
+			sceneNum_ = SCENE_GAMEMAIN;
+		}
 		break;
-	case GAMEMAIN:
+	case SCENE_GAMEMAIN:
 
 		if (input_->GetKeyState(KEY_INPUT_W, KEYS_TOUCH))
 		{
@@ -41,6 +45,21 @@ void GameScene::Update()
 
 void GameScene::Draw()
 {
-	DrawFormatString(10, 10, GetColor(255, 255, 255), "TEST");
-	DrawBox(playerTransform_.x,playerTransform_.y,playerTransform_.x + playerTransform_.width,playerTransform_.y + playerTransform_.height,GetColor(255,255,255),1);
+	switch (sceneNum_)
+	{
+	case SCENE_TITLE:
+		DrawFormatString(200, 200, GetColor(255, 255, 255), "Press Enter");
+		break;
+	case SCENE_GAMEMAIN:
+		DrawFormatString(10, 10, GetColor(255, 255, 255), "TEST");
+		DrawBox(playerTransform_.x, playerTransform_.y, playerTransform_.x + playerTransform_.width, playerTransform_.y + playerTransform_.height, GetColor(255, 255, 255), 1);
+		break;
+	default:
+		break;
+	}
+}
+
+void GameScene::Reset()
+{
+
 }
