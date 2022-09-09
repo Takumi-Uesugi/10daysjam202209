@@ -1,12 +1,14 @@
 #pragma once
+//各種入力を管理するクラス
 #include "DxLib.h"
 
+//GetKeyStateに使うinputTypeの一覧
 enum KeyInputType
 {
-	KEYS_TOUCH,
-	KEYS_PUSH,
-	KEYS_HOLD,
-	KEYS_RELS,
+	KEYS_TOUCH,//触れている時
+	KEYS_PUSH,//押した瞬間
+	KEYS_HOLD,//押している間
+	KEYS_RELS,//放した瞬間
 };
 
 class Input

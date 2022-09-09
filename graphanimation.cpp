@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "graphanimation.h"
-#include "DxLib.h"
 #define DATA_MAX 256
 
 D_ANIMATION animationData[DATA_MAX] = { 0 };

@@ -2,6 +2,7 @@
 //画像ファイルからアニメーションを生成して使えるようにするプログラム
 //LoadAnimation関数で画像をアニメーションとして読み込みハンドルを返す(LoadGraph関数と一緒)
 //プログラム上で実際に使うときはANIMATIONクラスを生成してSet関数で読み込み
+#include "DxLib.h"
 
 typedef struct {
 	int UseFlag;
